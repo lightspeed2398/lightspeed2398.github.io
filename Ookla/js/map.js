@@ -18,7 +18,7 @@ var osmurl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 var osmbaselayer = L.tileLayer(osmurl, {attribution: attribution, maxZoom: 18}); //Create the Base Layer
 
 var vectorTileOptions= {
-	rendererFactory: L.svg.tile,
+	rendererFactory: L.canvas.tile,
 	interactive: true, 
 	maxNativeZoom: 10,
 	//tolerance: 10,
@@ -35,7 +35,7 @@ var vectorTileOptions= {
 					fillColor: '#D7191C'
 				};
 			}
-			if(speed > 1000 && speed < 5000){
+			if(speed >= 1000 && speed < 5000){
 				return{
 					weight: 0,
 					fill: true,
@@ -43,7 +43,7 @@ var vectorTileOptions= {
 					fillColor: '#ED6E43'
 				};
 			}
-			if (speed > 5000 && speed < 15000){
+			if (speed >= 5000 && speed < 15000){
 				return{
 					weight: 0,
 					fill: true,
@@ -51,7 +51,7 @@ var vectorTileOptions= {
 					fillColor: '#FEBA6F'
 				};
 			}
-			if (speed > 15000 && speed < 30000){
+			if (speed >= 15000 && speed < 30000){
 				return{
 					weight: 0,
 					fill: true,
@@ -59,7 +59,7 @@ var vectorTileOptions= {
 					fillColor: '#FFE8A5'
 				};
 			}
-			if (speed > 30000 && speed < 60000){
+			if (speed >= 30000 && speed < 60000){
 				return{
 					weight: 0,
 					fill: true,
@@ -67,7 +67,7 @@ var vectorTileOptions= {
 					fillColor: '#E6F5A8'
 				};
 			}
-			if (speed > 60000 && speed < 120000){
+			if (speed >= 60000 && speed < 120000){
 				return{
 					weight: 0,
 					fill: true,
@@ -75,7 +75,7 @@ var vectorTileOptions= {
 					fillColor: '#B3Df76'
 				};
 			}
-			if (speed > 120000 && speed < 240000){
+			if (speed >= 120000 && speed < 240000){
 				return{
 					weight: 0,
 					fill: true,
@@ -83,7 +83,7 @@ var vectorTileOptions= {
 					fillColor: '#6ABD58'
 				};
 			}
-			if (speed > 240000 && speed < 480000){
+			if (speed >= 240000 && speed < 480000){
 				return{
 					weight: 0,
 					fill: true,
@@ -91,7 +91,7 @@ var vectorTileOptions= {
 					fillColor: '#1A9641'
 				};
 			}
-			if (speed > 480000){
+			if (speed >= 480000){
 				return{
 					weight: 0,
 					fill: true,
@@ -105,10 +105,21 @@ var vectorTileOptions= {
 
 
 function initialise(){
-    map = L.map('map', {minZoom: 5}).setView([52.5, -0.5], 13); //Create & Set View on the Map. 
+    map = L.map('map', {minZoom: 5}).setView([52.5, -0.5], 10); //Create & Set View on the Map. 
     map.addLayer(osmbaselayer); //Add the OSM Base Layer. 
 	map.addControl(search);
 	var OoklaQ3Layer = L.vectorGrid.protobuf("https://lightspeed2398.github.io/Ookla/MobileQ3/Tiles/{z}/{x}/{y}.pbf", vectorTileOptions);
+	map.on('zoomend', function(e){
+		if(map.getZoom() > 10 && OoklaQ3Layer.options.rendererFactory != L.svg.tile){
+			OoklaQ3Layer.options.rendererFactory = L.svg.tile;
+			OoklaQ3Layer.redraw();
+		}
+		if (map.getZoom() <= 10 && OoklaQ3Layer.options.rendererFactory != L.canvas.tile) {
+			OoklaQ3Layer.options.rendererFactory = L.canvas.tile;
+			OoklaQ3Layer.redraw();
+
+		}
+	});
 	OoklaQ3Layer.on('click', function(e) {
 		var averagedownloadspeed = e.layer.properties.avg_d_kbps/1000;
 		var averageuploadspeed = e.layer.properties.avg_u_kbps/1000;
