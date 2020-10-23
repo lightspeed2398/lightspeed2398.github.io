@@ -35,7 +35,7 @@ var vectorTileOptions= {
 					fillColor: '#D7191C'
 				};
 			}
-			if(speed > 1000 && speed < 5000){
+			if(speed >= 1000 && speed < 5000){
 				return{
 					weight: 0,
 					fill: true,
@@ -43,7 +43,7 @@ var vectorTileOptions= {
 					fillColor: '#ED6E43'
 				};
 			}
-			if (speed > 5000 && speed < 15000){
+			if (speed >= 5000 && speed < 15000){
 				return{
 					weight: 0,
 					fill: true,
@@ -51,7 +51,7 @@ var vectorTileOptions= {
 					fillColor: '#FEBA6F'
 				};
 			}
-			if (speed > 15000 && speed < 30000){
+			if (speed >= 15000 && speed < 30000){
 				return{
 					weight: 0,
 					fill: true,
@@ -59,7 +59,7 @@ var vectorTileOptions= {
 					fillColor: '#FFE8A5'
 				};
 			}
-			if (speed > 30000 && speed < 60000){
+			if (speed >= 30000 && speed < 60000){
 				return{
 					weight: 0,
 					fill: true,
@@ -67,7 +67,7 @@ var vectorTileOptions= {
 					fillColor: '#E6F5A8'
 				};
 			}
-			if (speed > 60000 && speed < 120000){
+			if (speed >= 60000 && speed < 120000){
 				return{
 					weight: 0,
 					fill: true,
@@ -75,7 +75,7 @@ var vectorTileOptions= {
 					fillColor: '#B3Df76'
 				};
 			}
-			if (speed > 120000 && speed < 240000){
+			if (speed >= 120000 && speed < 240000){
 				return{
 					weight: 0,
 					fill: true,
@@ -83,7 +83,7 @@ var vectorTileOptions= {
 					fillColor: '#6ABD58'
 				};
 			}
-			if (speed > 240000 && speed < 480000){
+			if (speed >= 240000 && speed < 480000){
 				return{
 					weight: 0,
 					fill: true,
@@ -91,7 +91,7 @@ var vectorTileOptions= {
 					fillColor: '#1A9641'
 				};
 			}
-			if (speed > 480000){
+			if (speed >= 480000){
 				return{
 					weight: 0,
 					fill: true,
