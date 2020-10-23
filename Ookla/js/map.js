@@ -14,7 +14,7 @@ const search = new GeoSearch.GeoSearchControl({
 
 
 //Base Layers
-var osmurl = 'https://{s}.tile.openstreetmap.com/{z}/{x}/{y}.png'; 
+var osmurl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'; 
 var osmbaselayer = L.tileLayer(osmurl, {attribution: attribution, maxZoom: 18}); //Create the Base Layer
 
 var vectorTileOptions= {
