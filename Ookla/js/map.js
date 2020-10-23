@@ -16,7 +16,7 @@ var vectorTileOptions= {
 				return{
 					color: '#FF0000'
 				};
-			if(speed > 100000)}
+			if(speed > 100000){
 				return{
 					color: '#00FF00'
 				};
