@@ -11,7 +11,7 @@ var osmbaselayer = L.tileLayer(osmurl, {attribution: attribution, maxZoom: 18});
 function initialise(){
     map = L.map('map').setView([52.5, -0.5], 6); //Create & Set View on the Map. 
     map.addLayer(osmbaselayer); //Add the OSM Base Layer. 
-    L.vectorGrid.protobuf("https://lightspeed2398.github.io/Ookla/MobileQ3/Tiles/{z}/{x}/{y}.pbf").addTo(map);
+    L.vectorGrid.protobuf("https://lightspeed2398.github.io/Ookla/MobileQ3/Tiles/{z}/{x}/{y}.pbf", {maxNativeZoom: 7}).addTo(map);
 
 }
 
