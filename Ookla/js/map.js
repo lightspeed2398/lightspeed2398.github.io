@@ -7,8 +7,12 @@ var osmurl = 'https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png';
 var osmbaselayer = L.tileLayer(osmurl, {attribution: attribution, maxZoom: 18}); //Create the Base Layer
 
 var vectorTileOptions= {
+	rendererFactory: L.svg.tile,
 	interactive: true, 
-	maxNativeZoom: 7, 
+	maxNativeZoom: 10,
+	//tolerance: 10,
+	//extent: 128, 
+	//buffer: 2,
 	vectorTileLayerStyles: {
 		mobileq3data: function(properties, zoom) {
 			var speed = properties.avg_d_kbps;
@@ -16,17 +20,20 @@ var vectorTileOptions= {
 				return{
 					color: '#FF0000'
 				};
+			}
 			if(speed > 100000){
 				return{
 					color: '#00FF00'
 				};
+			}
+			
 		}
 	}
 }
 
 
 function initialise(){
-    map = L.map('map', {minZoom: 10}).setView([52.5, -0.5], 10); //Create & Set View on the Map. 
+    map = L.map('map', {minZoom: 5}).setView([52.5, -0.5], 16); //Create & Set View on the Map. 
     map.addLayer(osmbaselayer); //Add the OSM Base Layer. 
     L.vectorGrid.protobuf("https://lightspeed2398.github.io/Ookla/MobileQ3/Tiles/{z}/{x}/{y}.pbf", vectorTileOptions).addTo(map);
 
