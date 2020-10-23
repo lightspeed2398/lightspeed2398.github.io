@@ -1,6 +1,17 @@
 //Base Variables
 var map;
-var attribution = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors amongst others - Design by LS2398';
+var attribution = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors amongst others - <a href="https://github.com/teamookla/ookla-open-data">Ookla</a> under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>, Edited/Styled by LS2398';
+const search = new GeoSearch.GeoSearchControl({
+	style: 'button',
+	autoClose: true,
+	animateZoom: false,
+	showMarker: false,
+	retainZoomLevel: true,
+	provider: new GeoSearch.OpenStreetMapProvider({
+		'accept-language': 'en'
+	})
+});
+
 
 //Base Layers
 var osmurl = 'https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png'; 
@@ -94,8 +105,22 @@ var vectorTileOptions= {
 
 
 function initialise(){
-    map = L.map('map', {minZoom: 5}).setView([52.5, -0.5], 10); //Create & Set View on the Map. 
+    map = L.map('map', {minZoom: 5}).setView([52.5, -0.5], 13); //Create & Set View on the Map. 
     map.addLayer(osmbaselayer); //Add the OSM Base Layer. 
-    L.vectorGrid.protobuf("https://lightspeed2398.github.io/Ookla/MobileQ3/Tiles/{z}/{x}/{y}.pbf", vectorTileOptions).addTo(map);
+	map.addControl(search);
+	var OoklaQ3Layer = L.vectorGrid.protobuf("https://lightspeed2398.github.io/Ookla/MobileQ3/Tiles/{z}/{x}/{y}.pbf", vectorTileOptions);
+	OoklaQ3Layer.on('click', function(e) {
+		var averagedownloadspeed = e.layer.properties.avg_d_kbps/1024;
+		var averageuploadspeed = e.layer.properties.avg_d_kbps/1024;
+		var averagelatency = e.layer.properties.avg_lat_ms;
+		var tests = e.layer.properties.tests;
+		var devices = e.layer.properties.devices;
+		console.log(e);
+		L.popup()
+		.setContent("<b>Average Download Speed: </b>" + averagedownloadspeed.toFixed(2) + "Mbps <br> <b> Average Upload Speed: </b>" + averageuploadspeed.toFixed(2) + "Mbps <br> <b> Average Latency: </b>" + averagelatency + "ms <br> <b> Number of Tests: </b>" + tests + "<br> <b> Number of Devices: </b>" + devices) 
+		.setLatLng(e.latlng)
+		.openOn(map)
+	});
+	OoklaQ3Layer.addTo(map);
 
 }
