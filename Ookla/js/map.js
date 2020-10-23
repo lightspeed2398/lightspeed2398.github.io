@@ -31,7 +31,7 @@ var vectorTileOptions= {
 				return{
 					weight: 0,
 					fill: true,
-					fillOpacity: 0.85,
+					fillOpacity: 0.75,
 					fillColor: '#D7191C'
 				};
 			}
@@ -39,7 +39,7 @@ var vectorTileOptions= {
 				return{
 					weight: 0,
 					fill: true,
-					fillOpacity: 0.85,
+					fillOpacity: 0.75,
 					fillColor: '#ED6E43'
 				};
 			}
@@ -47,7 +47,7 @@ var vectorTileOptions= {
 				return{
 					weight: 0,
 					fill: true,
-					fillOpacity: 0.85,
+					fillOpacity: 0.75,
 					fillColor: '#FEBA6F'
 				};
 			}
@@ -55,7 +55,7 @@ var vectorTileOptions= {
 				return{
 					weight: 0,
 					fill: true,
-					fillOpacity: 0.85,
+					fillOpacity: 0.75,
 					fillColor: '#FFE8A5'
 				};
 			}
@@ -63,7 +63,7 @@ var vectorTileOptions= {
 				return{
 					weight: 0,
 					fill: true,
-					fillOpacity: 0.85,
+					fillOpacity: 0.75,
 					fillColor: '#E6F5A8'
 				};
 			}
@@ -71,7 +71,7 @@ var vectorTileOptions= {
 				return{
 					weight: 0,
 					fill: true,
-					fillOpacity: 0.85,
+					fillOpacity: 0.75,
 					fillColor: '#B3Df76'
 				};
 			}
@@ -79,7 +79,7 @@ var vectorTileOptions= {
 				return{
 					weight: 0,
 					fill: true,
-					fillOpacity: 0.85,
+					fillOpacity: 0.75,
 					fillColor: '#6ABD58'
 				};
 			}
@@ -87,7 +87,7 @@ var vectorTileOptions= {
 				return{
 					weight: 0,
 					fill: true,
-					fillOpacity: 0.85,
+					fillOpacity: 0.75,
 					fillColor: '#1A9641'
 				};
 			}
@@ -95,7 +95,7 @@ var vectorTileOptions= {
 				return{
 					weight: 0,
 					fill: true,
-					fillOpacity: 0.85,
+					fillOpacity: 0.75,
 					fillColor: '#055B1E'
 				};
 			}
