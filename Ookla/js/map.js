@@ -18,7 +18,7 @@ var osmurl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 var osmbaselayer = L.tileLayer(osmurl, {attribution: attribution, maxZoom: 18}); //Create the Base Layer
 
 var vectorTileOptions= {
-	rendererFactory: L.svg.tile,
+	rendererFactory: L.canvas.tile,
 	interactive: true, 
 	maxNativeZoom: 10,
 	//tolerance: 10,
@@ -105,10 +105,21 @@ var vectorTileOptions= {
 
 
 function initialise(){
-    map = L.map('map', {minZoom: 5}).setView([52.5, -0.5], 13); //Create & Set View on the Map. 
+    map = L.map('map', {minZoom: 5}).setView([52.5, -0.5], 10); //Create & Set View on the Map. 
     map.addLayer(osmbaselayer); //Add the OSM Base Layer. 
 	map.addControl(search);
 	var OoklaQ3Layer = L.vectorGrid.protobuf("https://lightspeed2398.github.io/Ookla/MobileQ3/Tiles/{z}/{x}/{y}.pbf", vectorTileOptions);
+	map.on('zoomend', function(e){
+		if(map.getZoom() > 10 && OoklaQ3Layer.options.rendererFactory != L.svg.tile){
+			OoklaQ3Layer.options.rendererFactory = L.svg.tile;
+			OoklaQ3Layer.redraw();
+		}
+		if (map.getZoom() <= 10 && OoklaQ3Layer.options.rendererFactory != L.canvas.tile) {
+			OoklaQ3Layer.options.rendererFactory = L.canvas.tile;
+			OoklaQ3Layer.redraw();
+
+		}
+	});
 	OoklaQ3Layer.on('click', function(e) {
 		var averagedownloadspeed = e.layer.properties.avg_d_kbps/1000;
 		var averageuploadspeed = e.layer.properties.avg_u_kbps/1000;
