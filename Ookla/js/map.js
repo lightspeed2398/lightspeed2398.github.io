@@ -111,7 +111,7 @@ function initialise(){
 	var OoklaQ3Layer = L.vectorGrid.protobuf("https://lightspeed2398.github.io/Ookla/MobileQ3/Tiles/{z}/{x}/{y}.pbf", vectorTileOptions);
 	OoklaQ3Layer.on('click', function(e) {
 		var averagedownloadspeed = e.layer.properties.avg_d_kbps/1024;
-		var averageuploadspeed = e.layer.properties.avg_d_kbps/1024;
+		var averageuploadspeed = e.layer.properties.avg_u_kbps/1024;
 		var averagelatency = e.layer.properties.avg_lat_ms;
 		var tests = e.layer.properties.tests;
 		var devices = e.layer.properties.devices;
