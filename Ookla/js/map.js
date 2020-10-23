@@ -27,7 +27,7 @@ var vectorTileOptions= {
 	vectorTileLayerStyles: {
 		mobileq3data: function(properties, zoom) {
 			var speed = properties.avg_d_kbps;
-			if(speed < 1024){
+			if(speed < 1000){
 				return{
 					weight: 0,
 					fill: true,
@@ -35,7 +35,7 @@ var vectorTileOptions= {
 					fillColor: '#D7191C'
 				};
 			}
-			if(speed > 1024 && speed < 5000){
+			if(speed > 1000 && speed < 5000){
 				return{
 					weight: 0,
 					fill: true,
@@ -110,8 +110,8 @@ function initialise(){
 	map.addControl(search);
 	var OoklaQ3Layer = L.vectorGrid.protobuf("https://lightspeed2398.github.io/Ookla/MobileQ3/Tiles/{z}/{x}/{y}.pbf", vectorTileOptions);
 	OoklaQ3Layer.on('click', function(e) {
-		var averagedownloadspeed = e.layer.properties.avg_d_kbps/1024;
-		var averageuploadspeed = e.layer.properties.avg_d_kbps/1024;
+		var averagedownloadspeed = e.layer.properties.avg_d_kbps/1000;
+		var averageuploadspeed = e.layer.properties.avg_u_kbps/1000;
 		var averagelatency = e.layer.properties.avg_lat_ms;
 		var tests = e.layer.properties.tests;
 		var devices = e.layer.properties.devices;
