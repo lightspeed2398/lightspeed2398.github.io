@@ -68,9 +68,8 @@ var vectorTileOptions = {
 	rendererFactory: L.canvas.tile,
 	interactive: true,
 	maxNativeZoom: 10,
-	//tolerance: 10,
-	//extent: 128, 
-	//buffer: 2,
+	updateWhenZooming: false,
+	keepBuffer: 1,
 	vectorTileLayerStyles: {
 		mobileq3data: function (properties, zoom) {
 			var getTileStructure = function (fillColor) {
@@ -117,6 +116,7 @@ function initialise() {
 			.setLatLng(e.latlng)
 			.openOn(map)
 	});
+	
 	OoklaQ3Layer.addTo(map);
 
 	var legend = L.control({ position: "bottomleft"});
@@ -125,7 +125,7 @@ function initialise() {
 		var div = L.DomUtil.create("div", "legend");
 		div.innerHTML += "<h4>Speed</h4>";
 		colourSpeedRanges.forEach(element => {
-			div.innerHTML += `<i style="background: ${element.colour}"></i><span>${element.min} - ${element.max}</span><br>`
+			div.innerHTML += `<i style="background: ${element.colour}"></i><span>${element.min}Mbps - ${element.max}Mbps</span><br>`
 		});
 
 		return div;
