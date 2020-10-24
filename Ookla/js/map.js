@@ -4,7 +4,6 @@ var attribution = 'Map data &copy; <a href="https://www.openstreetmap.org/">Open
 const search = new GeoSearch.GeoSearchControl({
 	style: 'button',
 	autoClose: true,
-	animateZoom: false,
 	showMarker: false,
 	retainZoomLevel: true,
 	provider: new GeoSearch.OpenStreetMapProvider({
