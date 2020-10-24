@@ -91,6 +91,10 @@ function initialise() {
 	map = L.map('map', { minZoom: 5 }).setView([52.5, -0.5], 10); //Create & Set View on the Map. 
 	map.addLayer(osmbaselayer); //Add the OSM Base Layer. 
 	map.addControl(search);
+	map.zoomControl.setPosition('bottomright');
+	L.DomUtil.setOpacity(map.zoomControl.getContainer(), 0.7);
+	
+	
 	var OoklaQ3Layer = L.vectorGrid.protobuf("https://lightspeed2398.github.io/Ookla/MobileQ3/Tiles/{z}/{x}/{y}.pbf", vectorTileOptions);
 	map.on('zoomend', function (e) {
 		if (map.getZoom() > 10 && OoklaQ3Layer.options.rendererFactory != L.svg.tile) {
@@ -110,7 +114,7 @@ function initialise() {
 		var tests = e.layer.properties.tests;
 		var devices = e.layer.properties.devices;
 		console.log(e);
-		L.popup()
+		L.popup({className: 'detailsPopup'})
 			.setContent("<b>Average Download Speed: </b>" + averagedownloadspeed.toFixed(2) + "Mbps <br> <b> Average Upload Speed: </b>" + averageuploadspeed.toFixed(2) + "Mbps <br> <b> Average Latency: </b>" + averagelatency.toFixed(0) + "ms <br> <b> Number of Tests: </b>" + tests + "<br> <b> Number of Devices: </b>" + devices)
 			.setLatLng(e.latlng)
 			.openOn(map)
