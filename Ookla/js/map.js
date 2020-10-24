@@ -12,105 +12,90 @@ const search = new GeoSearch.GeoSearchControl({
 	})
 });
 
+var colourSpeedRanges = [
+	{
+		min: 0,
+		max: 1,
+		colour: '#D7191C'
+	},
+	{
+		min: 1,
+		max: 5,
+		colour: '#ED6E43'
+	},
+	{
+		min: 5,
+		max: 15,
+		colour: '#FEBA6F'
+	},
+	{
+		min: 15,
+		max: 30,
+		colour: '#FFE8A5'
+	},
+	{
+		min: 30,
+		max: 60,
+		colour: '#E6F5A8'
+	},
+	{
+		min: 60,
+		max: 120,
+		colour: '#B3Df76'
+	},
+	{
+		min: 120,
+		max: 240,
+		colour: '#6ABD58'
+	},
+	{
+		min: 240,
+		max: 480,
+		colour: '#1A9641'
+	},
+	{
+		min: 480,
+		max: 20000,
+		colour: '#055B1E'
+	}
+];
 
 //Base Layers
-var osmurl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'; 
-var osmbaselayer = L.tileLayer(osmurl, {attribution: attribution, maxZoom: 18}); //Create the Base Layer
+var osmurl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+var osmbaselayer = L.tileLayer(osmurl, { attribution: attribution, maxZoom: 18 }); //Create the Base Layer
 
-var vectorTileOptions= {
+var vectorTileOptions = {
 	rendererFactory: L.canvas.tile,
-	interactive: true, 
+	interactive: true,
 	maxNativeZoom: 10,
 	//tolerance: 10,
 	//extent: 128, 
 	//buffer: 2,
 	vectorTileLayerStyles: {
-		mobileq3data: function(properties, zoom) {
-			var speed = properties.avg_d_kbps;
-			if(speed < 1000){
-				return{
+		mobileq3data: function (properties, zoom) {
+			var getTileStructure = function (fillColor) {
+				return {
 					weight: 0,
 					fill: true,
 					fillOpacity: 0.75,
-					fillColor: '#D7191C'
-				};
+					fillColor: fillColor
+				}
 			}
-			if(speed >= 1000 && speed < 5000){
-				return{
-					weight: 0,
-					fill: true,
-					fillOpacity: 0.75,
-					fillColor: '#ED6E43'
-				};
-			}
-			if (speed >= 5000 && speed < 15000){
-				return{
-					weight: 0,
-					fill: true,
-					fillOpacity: 0.75,
-					fillColor: '#FEBA6F'
-				};
-			}
-			if (speed >= 15000 && speed < 30000){
-				return{
-					weight: 0,
-					fill: true,
-					fillOpacity: 0.75,
-					fillColor: '#FFE8A5'
-				};
-			}
-			if (speed >= 30000 && speed < 60000){
-				return{
-					weight: 0,
-					fill: true,
-					fillOpacity: 0.75,
-					fillColor: '#E6F5A8'
-				};
-			}
-			if (speed >= 60000 && speed < 120000){
-				return{
-					weight: 0,
-					fill: true,
-					fillOpacity: 0.75,
-					fillColor: '#B3Df76'
-				};
-			}
-			if (speed >= 120000 && speed < 240000){
-				return{
-					weight: 0,
-					fill: true,
-					fillOpacity: 0.75,
-					fillColor: '#6ABD58'
-				};
-			}
-			if (speed >= 240000 && speed < 480000){
-				return{
-					weight: 0,
-					fill: true,
-					fillOpacity: 0.75,
-					fillColor: '#1A9641'
-				};
-			}
-			if (speed >= 480000){
-				return{
-					weight: 0,
-					fill: true,
-					fillOpacity: 0.75,
-					fillColor: '#055B1E'
-				};
-			}
+
+			var speed = properties.avg_d_kbps / 1000;
+			var colour = colourSpeedRanges.filter(obj => speed >= obj.min && speed < obj.max)[0].colour;
+			return getTileStructure(colour);
 		}
 	}
 }
 
-
-function initialise(){
-    map = L.map('map', {minZoom: 5}).setView([52.5, -0.5], 10); //Create & Set View on the Map. 
-    map.addLayer(osmbaselayer); //Add the OSM Base Layer. 
+function initialise() {
+	map = L.map('map', { minZoom: 5 }).setView([52.5, -0.5], 10); //Create & Set View on the Map. 
+	map.addLayer(osmbaselayer); //Add the OSM Base Layer. 
 	map.addControl(search);
 	var OoklaQ3Layer = L.vectorGrid.protobuf("https://lightspeed2398.github.io/Ookla/MobileQ3/Tiles/{z}/{x}/{y}.pbf", vectorTileOptions);
-	map.on('zoomend', function(e){
-		if(map.getZoom() > 10 && OoklaQ3Layer.options.rendererFactory != L.svg.tile){
+	map.on('zoomend', function (e) {
+		if (map.getZoom() > 10 && OoklaQ3Layer.options.rendererFactory != L.svg.tile) {
 			OoklaQ3Layer.options.rendererFactory = L.svg.tile;
 			OoklaQ3Layer.redraw();
 		}
@@ -120,18 +105,31 @@ function initialise(){
 
 		}
 	});
-	OoklaQ3Layer.on('click', function(e) {
-		var averagedownloadspeed = e.layer.properties.avg_d_kbps/1000;
-		var averageuploadspeed = e.layer.properties.avg_u_kbps/1000;
+	OoklaQ3Layer.on('click', function (e) {
+		var averagedownloadspeed = e.layer.properties.avg_d_kbps / 1000;
+		var averageuploadspeed = e.layer.properties.avg_u_kbps / 1000;
 		var averagelatency = e.layer.properties.avg_lat_ms;
 		var tests = e.layer.properties.tests;
 		var devices = e.layer.properties.devices;
 		console.log(e);
 		L.popup()
-		.setContent("<b>Average Download Speed: </b>" + averagedownloadspeed.toFixed(2) + "Mbps <br> <b> Average Upload Speed: </b>" + averageuploadspeed.toFixed(2) + "Mbps <br> <b> Average Latency: </b>" + averagelatency + "ms <br> <b> Number of Tests: </b>" + tests + "<br> <b> Number of Devices: </b>" + devices) 
-		.setLatLng(e.latlng)
-		.openOn(map)
+			.setContent("<b>Average Download Speed: </b>" + averagedownloadspeed.toFixed(2) + "Mbps <br> <b> Average Upload Speed: </b>" + averageuploadspeed.toFixed(2) + "Mbps <br> <b> Average Latency: </b>" + averagelatency + "ms <br> <b> Number of Tests: </b>" + tests + "<br> <b> Number of Devices: </b>" + devices)
+			.setLatLng(e.latlng)
+			.openOn(map)
 	});
 	OoklaQ3Layer.addTo(map);
 
+	var legend = L.control({ position: "bottomleft"});
+
+	legend.onAdd = function(map){
+		var div = L.DomUtil.create("div", "legend");
+		div.innerHTML += "<h4>Speed</h4>";
+		colourSpeedRanges.forEach(element => {
+			div.innerHTML += `<i style="background: ${element.colour}"></i><span>${element.min} - ${element.max}</span><br>`
+		});
+
+		return div;
+	}
+
+	legend.addTo(map);
 }
