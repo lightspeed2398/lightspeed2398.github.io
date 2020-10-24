@@ -1,28 +1,26 @@
 <html>
+	<head>
+		<title>Ookla Open Data Exploration Tool - LS2398</title>
 
-<head>
-    <title>Ookla Open Data Exploration Tool - LS2398</title>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+		<link rel="stylesheet" href="css/geosearch.css"/>
+		<link rel="stylesheet" href="css/main.css">
 
-	<link rel="stylesheet" href="css/geosearch.css"/>
-    <link rel="stylesheet" href="css/main.css">
+		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/leaflet.esri/2.0.2/esri-leaflet.js"></script>
-	
-	<script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.bundled.js"></script>
-	
-	<script src="https://unpkg.com/leaflet-geosearch@3.0.4/dist/geosearch.umd.js"></script>
-	
-    <script src="js/map.js"></script>
-</head>
-
-<body style="margin:0px">
-    <div id="main">
-        <div id="map"></div>
-    </div>
-</body>
-<script>initialise();</script>
+		<script src="https://cdn.jsdelivr.net/leaflet.esri/2.0.2/esri-leaflet.js"></script>
+		
+		<script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.bundled.js"></script>
+		
+		<script src="https://unpkg.com/leaflet-geosearch@3.0.4/dist/geosearch.umd.js"></script>
+		
+		<script src="js/map.js"></script>
+	</head>
+	<body>
+		<div id="main">
+			<div id="map"></div>
+		</div>
+		<script defer>initialise();</script>
+	</body>
 </html>
