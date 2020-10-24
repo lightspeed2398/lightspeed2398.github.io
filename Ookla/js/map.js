@@ -4,7 +4,6 @@ var attribution = 'Map data &copy; <a href="https://www.openstreetmap.org/">Open
 const search = new GeoSearch.GeoSearchControl({
 	style: 'button',
 	autoClose: true,
-	animateZoom: false,
 	showMarker: false,
 	retainZoomLevel: true,
 	provider: new GeoSearch.OpenStreetMapProvider({
@@ -68,9 +67,8 @@ var vectorTileOptions = {
 	rendererFactory: L.canvas.tile,
 	interactive: true,
 	maxNativeZoom: 10,
-	//tolerance: 10,
-	//extent: 128, 
-	//buffer: 2,
+	updateWhenZooming: false,
+	keepBuffer: 1,
 	vectorTileLayerStyles: {
 		mobileq3data: function (properties, zoom) {
 			var getTileStructure = function (fillColor) {
@@ -113,10 +111,11 @@ function initialise() {
 		var devices = e.layer.properties.devices;
 		console.log(e);
 		L.popup()
-			.setContent("<b>Average Download Speed: </b>" + averagedownloadspeed.toFixed(2) + "Mbps <br> <b> Average Upload Speed: </b>" + averageuploadspeed.toFixed(2) + "Mbps <br> <b> Average Latency: </b>" + averagelatency + "ms <br> <b> Number of Tests: </b>" + tests + "<br> <b> Number of Devices: </b>" + devices)
+			.setContent("<b>Average Download Speed: </b>" + averagedownloadspeed.toFixed(2) + "Mbps <br> <b> Average Upload Speed: </b>" + averageuploadspeed.toFixed(2) + "Mbps <br> <b> Average Latency: </b>" + averagelatency.toFixed(0) + "ms <br> <b> Number of Tests: </b>" + tests + "<br> <b> Number of Devices: </b>" + devices)
 			.setLatLng(e.latlng)
 			.openOn(map)
 	});
+	
 	OoklaQ3Layer.addTo(map);
 
 	var legend = L.control({ position: "bottomleft"});
@@ -125,7 +124,7 @@ function initialise() {
 		var div = L.DomUtil.create("div", "legend");
 		div.innerHTML += "<h4>Speed</h4>";
 		colourSpeedRanges.forEach(element => {
-			div.innerHTML += `<i style="background: ${element.colour}"></i><span>${element.min} - ${element.max}</span><br>`
+			div.innerHTML += `<i style="background: ${element.colour}"></i><span>${element.min}Mbps - ${element.max}Mbps</span><br>`
 		});
 
 		return div;
