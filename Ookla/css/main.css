@@ -8,6 +8,17 @@ body, html {
 	height: 100%;
 }
 
+.detailsPopup .leaflet-popup-tip,
+.detailsPopup .leaflet-popup-content-wrapper {
+	text-align: center;
+	background: rgba(255, 255, 255, 0.8);
+	font: 14px Helvetica, Arial, sans-serif;
+	backdrop-filter: blur(5px);
+	box-shadow: none;
+	
+}
+
+
 .legend {
 	padding: 8px 8px;
 	font: 1rem Helvetica, Arial, sans-serif;
