@@ -87,13 +87,50 @@ var vectorTileOptions = {
 	}
 }
 
+function moveMapToUser() {
+	requestUserLocation(function(lat, lon){
+		map.setView([lat, lon], 14);
+	});
+}
+
+function requestUserLocation(cb) {
+	if (!navigator || !navigator.permissions) {
+		console.log('Did not ask for location permission');
+		return;
+	}
+	
+	navigator.permissions.query({name:"geolocation"}).then(function(resp){
+		if (!resp || !resp.state) {
+			console.log('Could not ask for permission');
+			return;
+		}
+		
+		if (resp.state === "granted" || resp.state === "prompt") {
+			navigator.geolocation.getCurrentPosition(function (position) {
+				cb(position.coords.latitude, position.coords.longitude);
+			});
+		} else {
+			console.log('Permission denied');
+		}
+	});
+}
+
 function initialise() {
-	map = L.map('map', { minZoom: 5 }).setView([52.5, -0.5], 10); //Create & Set View on the Map. 
-	map.addLayer(osmbaselayer); //Add the OSM Base Layer. 
+	// Create & Set View on the Map.
+	map = L.map('map', { minZoom: 5 }).setView([52.5, -0.5], 10);
+	
+	// Add the OSM Base Layer and search box
+	map.addLayer(osmbaselayer);
 	map.addControl(search);
 	map.zoomControl.setPosition('bottomright');
 	L.DomUtil.setOpacity(map.zoomControl.getContainer(), 0.7);
+	
+	// Ask for permission to move the map to current location
+	moveMapToUser();
+	
+	// Start the fun...
 	var OoklaQ3Layer = L.vectorGrid.protobuf("https://lightspeed2398.github.io/Ookla/MobileQ3/Tiles/{z}/{x}/{y}.pbf", vectorTileOptions);
+	
 	map.on('zoomend', function (e) {
 		if (map.getZoom() > 10 && OoklaQ3Layer.options.rendererFactory != L.svg.tile) {
 			OoklaQ3Layer.options.rendererFactory = L.svg.tile;
@@ -105,6 +142,7 @@ function initialise() {
 
 		}
 	});
+	
 	OoklaQ3Layer.on('click', function (e) {
 		var averagedownloadspeed = e.layer.properties.avg_d_kbps / 1000;
 		var averageuploadspeed = e.layer.properties.avg_u_kbps / 1000;
