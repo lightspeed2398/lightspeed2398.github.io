@@ -114,7 +114,8 @@
           "padding": "12px",
           "background-color": "#f9f9f9",
           "border-radius": "8px",
-          "display": "=if([$Current_work_interests], 'block', 'none')"
+          "display": "=if([$Current_work_interests], 'block', 'none')",
+          "box-sizing": "border-box"
         },
         "children": [
           {
@@ -134,7 +135,8 @@
               "font-size": "14px",
               "color": "#555555",
               "white-space": "pre-line",
-              "line-height": "1.5"
+              "line-height": "1.5",
+              "overflow-wrap": "break-word"
             }
           }
         ]
@@ -148,7 +150,8 @@
           "padding": "12px",
           "background-color": "#f9f9f9",
           "border-radius": "8px",
-          "display": "=if([$Previous_work_interests], 'block', 'none')"
+          "display": "=if([$Previous_work_interests], 'block', 'none')",
+          "box-sizing": "border-box"
         },
         "children": [
           {
@@ -168,7 +171,8 @@
               "font-size": "14px",
               "color": "#555555",
               "white-space": "pre-line",
-              "line-height": "1.5"
+              "line-height": "1.5",
+              "overflow-wrap": "break-word"
             }
           }
         ]
@@ -181,7 +185,8 @@
           "padding": "12px",
           "background-color": "#f9f9f9",
           "border-radius": "8px",
-          "display": "=if([$Hobbies_Facts], 'block', 'none')"
+          "display": "=if([$Hobbies_Facts], 'block', 'none')",
+          "box-sizing": "border-box"
         },
         "children": [
           {
@@ -201,7 +206,8 @@
               "font-size": "14px",
               "color": "#555555",
               "white-space": "pre-line",
-              "line-height": "1.5"
+              "line-height": "1.5",
+              "overflow-wrap": "break-word"
             }
           }
         ]
