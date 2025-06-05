@@ -35,8 +35,7 @@
           {
             "elmType": "img",
             "attributes": {
-              "src": "[$Personal_Photo.pictureMedium]",
-              "alt": "[$Name]"
+              "src": "=getThumbnailImage([$Personal_Photo], 400, 400)"
             },
             "style": {
               "width": "100%",
@@ -58,13 +57,25 @@
       },
       {
         "elmType": "div",
-        "txtContent": "[$Name]",
+        "txtContent": "[$Title]",
         "style": {
           "font-size": "22px",
           "font-weight": "600",
           "color": "#202020",
           "margin-bottom": "4px",
           "text-align": "center"
+        }
+      },
+      {
+        "elmType": "div",
+        "txtContent": "[$Job_x0020_Title]",
+        "style": {
+          "font-size": "16px",
+          "font-weight": "normal",
+          "color": "#404040",
+          "margin-bottom": "8px",
+          "text-align": "center",
+          "display": "=if([$Job_x0020_Title], 'block', 'none')"
         }
       },
       {
