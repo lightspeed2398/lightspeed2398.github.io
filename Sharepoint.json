@@ -2,235 +2,142 @@
   "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/view-formatting.schema.json",
   "formatter": {
     "elmType": "div",
+    "comment": "This is the new outer 'wrapper'. It uses inline-block for robust layout.",
     "style": {
-      "display": "flex",
-      "flex-direction": "column",
+      "display": "inline-block",
+      "vertical-align": "top",
       "width": "340px",
-      "margin": "10px",
-      "font-family": "Arial, sans-serif",
-      "background-color": "#ffffff",
-      "border-radius": "4px",
-      "padding": "15px",
-      "height": "auto",
-      "overflow": "visible",
-      "border-top": "5px solid #003479",
-      "box-shadow": "0 3px 6px rgba(0,0,0,0.08)",
-      "box-sizing": "border-box",
-      "flex-shrink": 0
-    },
-    ":hover": {
-      "box-shadow": "0 6px 12px rgba(0,0,0,0.12)"
+      "height": "100%",
+      "margin": "10px"
     },
     "children": [
       {
         "elmType": "div",
+        "comment": "This is your original card, now nested inside the wrapper.",
         "style": {
-          "display": "=if([$Personal_Photo], 'block', 'none')",
-          "text-align": "center",
-          "margin-bottom": "15px"
+          "display": "flex",
+          "flex-direction": "column",
+          "width": "100%",
+          "height": "100%",
+          "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+          "background-color": "#ffffff",
+          "border-radius": "4px",
+          "padding": "15px",
+          "overflow": "hidden",
+          "border-top": "5px solid #003479",
+          "box-shadow": "0 3px 6px rgba(0,0,0,0.08)",
+          "box-sizing": "border-box",
+          "transition": "box-shadow 0.25s ease-out, transform 0.25s ease-out"
+        },
+        ":hover": {
+          "box-shadow": "0 8px 20px rgba(0,0,0,0.15)",
+          "transform": "translateY(-4px)"
         },
         "children": [
           {
             "elmType": "div",
             "style": {
-              "width": "100px",
-              "height": "100px",
-              "border-radius": "50%",
-              "background-color": "#62c3f4",
-              "padding": "3px",
-              "margin": "0 auto",
-              "overflow": "hidden"
+              "display": "=if([$Personal_Photo], 'block', 'none')",
+              "text-align": "center",
+              "margin-bottom": "15px"
             },
             "children": [
               {
-                "elmType": "img",
-                "attributes": {
-                  "src": "=if([$Personal_Photo], getThumbnailImage([$Personal_Photo], 200, 200), '')"
-                },
+                "elmType": "div",
                 "style": {
-                  "width": "100%",
-                  "height": "100%",
-                  "border-radius": "50%"
-                }
+                  "width": "100px",
+                  "height": "100px",
+                  "border-radius": "50%",
+                  "background-color": "#62c3f4",
+                  "padding": "3px",
+                  "margin": "0 auto",
+                  "overflow": "hidden"
+                },
+                "children": [
+                  {
+                    "elmType": "img",
+                    "attributes": {
+                      "src": "=if([$Personal_Photo], getThumbnailImage([$Personal_Photo], 200, 200), '')"
+                    },
+                    "style": {
+                      "width": "100%",
+                      "height": "100%",
+                      "border-radius": "50%"
+                    }
+                  }
+                ]
               }
             ]
-          }
-        ]
-      },
-      {
-        "elmType": "div",
-        "txtContent": "[$Title]",
-        "style": {
-          "font-size": "22px",
-          "font-weight": "bold",
-          "color": "#182d4c",
-          "text-align": "center",
-          "margin-bottom": "4px"
-        }
-      },
-      {
-        "elmType": "div",
-        "txtContent": "[$Job_Title]",
-        "style": {
-          "font-size": "16px",
-          "color": "#595959",
-          "text-align": "center",
-          "margin-bottom": "10px",
-          "display": "=if([$Job_Title], 'block', 'none')"
-        }
-      },
-      {
-        "elmType": "div",
-        "style": {
-          "font-size": "14px",
-          "color": "#666666",
-          "text-align": "center",
-          "margin-bottom": "15px",
-          "display": "=if([$Office], 'block', 'none')"
-        },
-        "children": [
-          {
-            "elmType": "span",
-            "txtContent": "📍 "
           },
           {
-            "elmType": "span",
-            "txtContent": "[$Office]"
-          }
-        ]
-      },
-      {
-        "elmType": "div",
-        "style": {
-          "width": "100%",
-          "box-sizing": "border-box",
-          "margin-top": "10px",
-          "padding": "12px",
-          "background-color": "#f7f9fc",
-          "border-radius": "4px"
-        },
-        "children": [
-          {
             "elmType": "div",
-            "txtContent": "Current Work Interests",
+            "txtContent": "[$Title]",
             "style": {
-              "font-size": "14px",
+              "font-size": "22px",
               "font-weight": "bold",
-              "color": "#003479",
-              "margin-bottom": "5px"
+              "color": "#182d4c",
+              "text-align": "center",
+              "margin-bottom": "4px"
             }
           },
           {
             "elmType": "div",
-            "txtContent": "[$Current_work_interests]",
+            "txtContent": "[$Job_Title]",
             "style": {
-              "font-size": "14px",
-              "color": "#333",
-              "white-space": "pre-line",
-              "word-break": "break-word",
-              "display": "=if([$Current_work_interests], 'block', 'none')"
+              "font-size": "16px",
+              "color": "#595959",
+              "text-align": "center",
+              "margin-bottom": "10px",
+              "display": "=if([$Job_Title], 'block', 'none')"
             }
           },
           {
             "elmType": "div",
-            "txtContent": "Not specified",
             "style": {
               "font-size": "14px",
-              "font-style": "italic",
-              "color": "#888",
-              "display": "=if([$Current_work_interests], 'none', 'block')"
-            }
-          }
-        ]
-      },
-      {
-        "elmType": "div",
-        "style": {
-          "width": "100%",
-          "box-sizing": "border-box",
-          "margin-top": "10px",
-          "padding": "12px",
-          "background-color": "#f7f9fc",
-          "border-radius": "4px"
-        },
-        "children": [
-          {
-            "elmType": "div",
-            "txtContent": "Previous Work Interests",
-            "style": {
-              "font-size": "14px",
-              "font-weight": "bold",
-              "color": "#003479",
-              "margin-bottom": "5px"
-            }
+              "color": "#666666",
+              "text-align": "center",
+              "margin-bottom": "15px",
+              "display": "=if([$Office], 'block', 'none')"
+            },
+            "children": [
+              {
+                "elmType": "span",
+                "txtContent": "📍 "
+              },
+              {
+                "elmType": "span",
+                "txtContent": "[$Office]"
+              }
+            ]
           },
           {
             "elmType": "div",
-            "txtContent": "[$Previous_work_interests]",
             "style": {
-              "font-size": "14px",
-              "color": "#333",
-              "white-space": "pre-line",
-              "word-break": "break-word",
-              "display": "=if([$Previous_work_interests], 'block', 'none')"
-            }
-          },
-          {
-            "elmType": "div",
-            "txtContent": "Not specified",
-            "style": {
-              "font-size": "14px",
-              "font-style": "italic",
-              "color": "#888",
-              "display": "=if([$Previous_work_interests], 'none', 'block')"
-            }
-          }
-        ]
-      },
-      {
-        "elmType": "div",
-        "style": {
-          "width": "100%",
-          "box-sizing": "border-box",
-          "margin-top": "10px",
-          "padding": "12px",
-          "background-color": "#f7f9fc",
-          "border-radius": "4px"
-        },
-        "children": [
-          {
-            "elmType": "div",
-            "txtContent": "Hobbies & Fun Facts",
-            "style": {
-              "font-size": "14px",
-              "font-weight": "bold",
-              "color": "#003479",
-              "margin-bottom": "5px"
-            }
-          },
-          {
-            "elmType": "div",
-            "txtContent": "[$Hobbies_Facts]",
-            "style": {
-              "font-size": "14px",
-              "color": "#333",
-              "white-space": "pre-line",
-              "word-break": "break-word",
-              "display": "=if([$Hobbies_Facts], 'block', 'none')"
-            }
-          },
-          {
-            "elmType": "div",
-            "txtContent": "Not specified",
-            "style": {
-              "font-size": "14px",
-              "font-style": "italic",
-              "color": "#888",
-              "display": "=if([$Hobbies_Facts], 'none', 'block')"
-            }
-          }
-        ]
-      }
-    ]
-  }
-}
+              "width": "100%",
+              "box-sizing": "border-box",
+              "margin-top": "10px",
+              "padding": "12px",
+              "background-color": "#f7f9fc",
+              "border-radius": "4px"
+            },
+            "children": [
+              {
+                "elmType": "div",
+                "txtContent": "Current Work Interests",
+                "style": {
+                  "font-size": "14px",
+                  "font-weight": "bold",
+                  "color": "#003479",
+                  "margin-bottom": "5px"
+                }
+              },
+              {
+                "elmType": "div",
+                "txtContent": "[$Current_work_interests]",
+                "style": {
+                  "font-size": "14px",
+                  "color": "#333",
+                  "white-space": "pre-line",
+                  "word-break": "break-word",
+                  "display": "=if
