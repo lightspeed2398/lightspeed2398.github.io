@@ -45,3 +45,160 @@
               "display": "=if([$Personal_Photo], 'block', 'none')"
             }
           },
+          {
+            "elmType": "div",
+            "style": {
+              "display": "=if([$Personal_Photo], 'none', 'flex')",
+              "font-size": "50px",
+              "color": "#a0a0a0"
+            },
+            "txtContent": "👤"
+          }
+        ]
+      },
+      {
+        "elmType": "div",
+        "txtContent": "[$Name]",
+        "style": {
+          "font-size": "22px",
+          "font-weight": "600",
+          "color": "#202020",
+          "margin-bottom": "4px",
+          "text-align": "center"
+        }
+      },
+      {
+        "elmType": "div",
+        "style": {
+          "font-size": "14px",
+          "color": "#606060",
+          "margin-bottom": "16px",
+          "text-align": "center",
+          "display": "=if([$Office], 'flex', 'none')",
+          "align-items": "center"
+        },
+        "children": [
+          {
+            "elmType": "span",
+            "txtContent": "📍",
+            "style": {
+              "margin-right": "6px",
+              "font-size": "16px"
+            }
+          },
+          {
+            "elmType": "span",
+            "txtContent": "[$Office]"
+          }
+        ]
+      },
+      {
+        "elmType": "div",
+        "style": {
+          "width": "100%",
+          "text-align": "left",
+          "margin-bottom": "12px",
+          "padding": "12px",
+          "background-color": "#f9f9f9",
+          "border-radius": "8px",
+          "display": "=if([$Current_work_interests], 'block', 'none')"
+        },
+        "children": [
+          {
+            "elmType": "div",
+            "style": {
+              "font-weight": "bold",
+              "margin-bottom": "6px",
+              "color": "#333333",
+              "font-size": "15px"
+            },
+            "txtContent": "💡 Current Work Interests"
+          },
+          {
+            "elmType": "div",
+            "txtContent": "[$Current_work_interests]",
+            "style": {
+              "font-size": "14px",
+              "color": "#555555",
+              "white-space": "pre-line",
+              "line-height": "1.5",
+              "max-height": "100px",
+              "overflow-y": "auto"
+            }
+          }
+        ]
+      },
+      {
+        "elmType": "div",
+        "style": {
+          "width": "100%",
+          "text-align": "left",
+          "margin-bottom": "12px",
+          "padding": "12px",
+          "background-color": "#f9f9f9",
+          "border-radius": "8px",
+          "display": "=if([$Previous_work_interests], 'block', 'none')"
+        },
+        "children": [
+          {
+            "elmType": "div",
+            "style": {
+              "font-weight": "bold",
+              "margin-bottom": "6px",
+              "color": "#333333",
+              "font-size": "15px"
+            },
+            "txtContent": "📚 Previous Work Interests"
+          },
+          {
+            "elmType": "div",
+            "txtContent": "[$Previous_work_interests]",
+            "style": {
+              "font-size": "14px",
+              "color": "#555555",
+              "white-space": "pre-line",
+              "line-height": "1.5",
+              "max-height": "100px",
+              "overflow-y": "auto"
+            }
+          }
+        ]
+      },
+      {
+        "elmType": "div",
+        "style": {
+          "width": "100%",
+          "text-align": "left",
+          "padding": "12px",
+          "background-color": "#f9f9f9",
+          "border-radius": "8px",
+          "display": "=if([$Hobbies_Facts], 'block', 'none')"
+        },
+        "children": [
+          {
+            "elmType": "div",
+            "style": {
+              "font-weight": "bold",
+              "margin-bottom": "6px",
+              "color": "#333333",
+              "font-size": "15px"
+            },
+            "txtContent": "🎉 Hobbies & Fun Facts"
+          },
+          {
+            "elmType": "div",
+            "txtContent": "[$Hobbies_Facts]",
+            "style": {
+              "font-size": "14px",
+              "color": "#555555",
+              "white-space": "pre-line",
+              "line-height": "1.5",
+              "max-height": "100px",
+              "overflow-y": "auto"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
