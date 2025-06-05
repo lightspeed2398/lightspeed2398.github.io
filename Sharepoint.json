@@ -1,240 +1,233 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/view-formatting.schema.json",
-  "formatter": {
+  "hideSelection": true,
+  "hideColumnHeader": true,
+  "rowFormatter": {
     "elmType": "div",
     "style": {
-      "width": "340px",
-      "margin": "10px"
+      "display": "flex",
+      "flex-direction": "column",
+      "font-family": "Arial, sans-serif",
+      "background-color": "#ffffff",
+      "margin": "12px auto",
+      "padding": "15px",
+      "width": "95%",
+      "max-width": "550px",
+      "border-radius": "4px",
+      "border-top": "5px solid #003479",
+      "box-shadow": "0 3px 6px rgba(0,0,0,0.08)",
+      "box-sizing": "border-box"
+    },
+    ":hover": {
+      "box-shadow": "0 6px 12px rgba(0,0,0,0.12)"
     },
     "children": [
       {
         "elmType": "div",
         "style": {
-          "display": "flex",
-          "flex-direction": "column",
-          "width": "100%",
-          "height": "auto",
-          "font-family": "Arial, sans-serif",
-          "background-color": "#ffffff",
-          "border-radius": "4px",
-          "padding": "15px",
-          "overflow": "visible",
-          "border-top": "5px solid #003479",
-          "box-shadow": "0 3px 6px rgba(0,0,0,0.08)",
-          "box-sizing": "border-box"
-        },
-        ":hover": {
-          "box-shadow": "0 6px 12px rgba(0,0,0,0.12)"
+          "display": "=if([$Personal_Photo], 'block', 'none')",
+          "text-align": "center",
+          "margin-bottom": "15px"
         },
         "children": [
           {
             "elmType": "div",
             "style": {
-              "display": "=if([$Personal_Photo], 'block', 'none')",
-              "text-align": "center",
-              "margin-bottom": "15px"
+              "width": "100px",
+              "height": "100px",
+              "border-radius": "50%",
+              "background-color": "#62c3f4",
+              "padding": "3px",
+              "margin": "0 auto",
+              "overflow": "hidden"
             },
             "children": [
               {
-                "elmType": "div",
-                "style": {
-                  "width": "100px",
-                  "height": "100px",
-                  "border-radius": "50%",
-                  "background-color": "#62c3f4",
-                  "padding": "3px",
-                  "margin": "0 auto",
-                  "overflow": "hidden"
+                "elmType": "img",
+                "attributes": {
+                  "src": "=if([$Personal_Photo], getThumbnailImage([$Personal_Photo], 200, 200), '')"
                 },
-                "children": [
-                  {
-                    "elmType": "img",
-                    "attributes": {
-                      "src": "=if([$Personal_Photo], getThumbnailImage([$Personal_Photo], 200, 200), '')"
-                    },
-                    "style": {
-                      "width": "100%",
-                      "height": "100%",
-                      "border-radius": "50%"
-                    }
-                  }
-                ]
+                "style": {
+                  "width": "100%",
+                  "height": "100%",
+                  "border-radius": "50%"
+                }
               }
             ]
+          }
+        ]
+      },
+      {
+        "elmType": "div",
+        "txtContent": "[$Title]",
+        "style": {
+          "font-size": "22px",
+          "font-weight": "bold",
+          "color": "#182d4c",
+          "text-align": "center",
+          "margin-bottom": "4px"
+        }
+      },
+      {
+        "elmType": "div",
+        "txtContent": "[$Job_Title]",
+        "style": {
+          "font-size": "16px",
+          "color": "#595959",
+          "text-align": "center",
+          "margin-bottom": "10px",
+          "display": "=if([$Job_Title], 'block', 'none')"
+        }
+      },
+      {
+        "elmType": "div",
+        "style": {
+          "font-size": "14px",
+          "color": "#666666",
+          "text-align": "center",
+          "margin-bottom": "15px",
+          "display": "=if([$Office], 'block', 'none')"
+        },
+        "children": [
+          {
+            "elmType": "span",
+            "txtContent": "📍 "
           },
           {
-            "elmType": "div",
-            "txtContent": "[$Title]",
-            "style": {
-              "font-size": "22px",
-              "font-weight": "bold",
-              "color": "#182d4c",
-              "text-align": "center",
-              "margin-bottom": "4px"
-            }
-          },
+            "elmType": "span",
+            "txtContent": "[$Office]"
+          }
+        ]
+      },
+      {
+        "elmType": "div",
+        "style": {
+          "width": "100%",
+          "box-sizing": "border-box",
+          "margin-top": "10px",
+          "padding": "12px",
+          "background-color": "#f7f9fc",
+          "border-radius": "4px"
+        },
+        "children": [
           {
             "elmType": "div",
-            "txtContent": "[$Job_Title]",
-            "style": {
-              "font-size": "16px",
-              "color": "#595959",
-              "text-align": "center",
-              "margin-bottom": "10px",
-              "display": "=if([$Job_Title], 'block', 'none')"
-            }
-          },
-          {
-            "elmType": "div",
+            "txtContent": "Current Work Interests",
             "style": {
               "font-size": "14px",
-              "color": "#666666",
-              "text-align": "center",
-              "margin-bottom": "15px",
-              "display": "=if([$Office], 'block', 'none')"
-            },
-            "children": [
-              {
-                "elmType": "span",
-                "txtContent": "📍 "
-              },
-              {
-                "elmType": "span",
-                "txtContent": "[$Office]"
-              }
-            ]
+              "font-weight": "bold",
+              "color": "#003479",
+              "margin-bottom": "5px"
+            }
           },
           {
             "elmType": "div",
+            "txtContent": "[$Current_work_interests]",
             "style": {
-              "width": "100%",
-              "box-sizing": "border-box",
-              "margin-top": "10px",
-              "padding": "12px",
-              "background-color": "#f7f9fc",
-              "border-radius": "4px"
-            },
-            "children": [
-              {
-                "elmType": "div",
-                "txtContent": "Current Work Interests",
-                "style": {
-                  "font-size": "14px",
-                  "font-weight": "bold",
-                  "color": "#003479",
-                  "margin-bottom": "5px"
-                }
-              },
-              {
-                "elmType": "div",
-                "txtContent": "[$Current_work_interests]",
-                "style": {
-                  "font-size": "14px",
-                  "color": "#333",
-                  "white-space": "pre-line",
-                  "word-break": "break-word",
-                  "display": "=if([$Current_work_interests], 'block', 'none')"
-                }
-              },
-              {
-                "elmType": "div",
-                "txtContent": "Not specified",
-                "style": {
-                  "font-size": "14px",
-                  "font-style": "italic",
-                  "color": "#888",
-                  "display": "=if([$Current_work_interests], 'none', 'block')"
-                }
-              }
-            ]
+              "font-size": "14px",
+              "color": "#333",
+              "white-space": "pre-line",
+              "word-break": "break-word",
+              "display": "=if([$Current_work_interests], 'block', 'none')"
+            }
           },
           {
             "elmType": "div",
+            "txtContent": "Not specified",
             "style": {
-              "width": "100%",
-              "box-sizing": "border-box",
-              "margin-top": "10px",
-              "padding": "12px",
-              "background-color": "#f7f9fc",
-              "border-radius": "4px"
-            },
-            "children": [
-              {
-                "elmType": "div",
-                "txtContent": "Previous Work Interests",
-                "style": {
-                  "font-size": "14px",
-                  "font-weight": "bold",
-                  "color": "#003479",
-                  "margin-bottom": "5px"
-                }
-              },
-              {
-                "elmType": "div",
-                "txtContent": "[$Previous_work_interests]",
-                "style": {
-                  "font-size": "14px",
-                  "color": "#333",
-                  "white-space": "pre-line",
-                  "word-break": "break-word",
-                  "display": "=if([$Previous_work_interests], 'block', 'none')"
-                }
-              },
-              {
-                "elmType": "div",
-                "txtContent": "Not specified",
-                "style": {
-                  "font-size": "14px",
-                  "font-style": "italic",
-                  "color": "#888",
-                  "display": "=if([$Previous_work_interests], 'none', 'block')"
-                }
-              }
-            ]
+              "font-size": "14px",
+              "font-style": "italic",
+              "color": "#888",
+              "display": "=if([$Current_work_interests], 'none', 'block')"
+            }
+          }
+        ]
+      },
+      {
+        "elmType": "div",
+        "style": {
+          "width": "100%",
+          "box-sizing": "border-box",
+          "margin-top": "10px",
+          "padding": "12px",
+          "background-color": "#f7f9fc",
+          "border-radius": "4px"
+        },
+        "children": [
+          {
+            "elmType": "div",
+            "txtContent": "Previous Work Interests",
+            "style": {
+              "font-size": "14px",
+              "font-weight": "bold",
+              "color": "#003479",
+              "margin-bottom": "5px"
+            }
           },
           {
             "elmType": "div",
+            "txtContent": "[$Previous_work_interests]",
             "style": {
-              "width": "100%",
-              "box-sizing": "border-box",
-              "margin-top": "10px",
-              "padding": "12px",
-              "background-color": "#f7f9fc",
-              "border-radius": "4px"
-            },
-            "children": [
-              {
-                "elmType": "div",
-                "txtContent": "Hobbies & Fun Facts",
-                "style": {
-                  "font-size": "14px",
-                  "font-weight": "bold",
-                  "color": "#003479",
-                  "margin-bottom": "5px"
-                }
-              },
-              {
-                "elmType": "div",
-                "txtContent": "[$Hobbies_Facts]",
-                "style": {
-                  "font-size": "14px",
-                  "color": "#333",
-                  "white-space": "pre-line",
-                  "word-break": "break-word",
-                  "display": "=if([$Hobbies_Facts], 'block', 'none')"
-                }
-              },
-              {
-                "elmType": "div",
-                "txtContent": "Not specified",
-                "style": {
-                  "font-size": "14px",
-                  "font-style": "italic",
-                  "color": "#888",
-                  "display": "=if([$Hobbies_Facts], 'none', 'block')"
-                }
-              }
-            ]
+              "font-size": "14px",
+              "color": "#333",
+              "white-space": "pre-line",
+              "word-break": "break-word",
+              "display": "=if([$Previous_work_interests], 'block', 'none')"
+            }
+          },
+          {
+            "elmType": "div",
+            "txtContent": "Not specified",
+            "style": {
+              "font-size": "14px",
+              "font-style": "italic",
+              "color": "#888",
+              "display": "=if([$Previous_work_interests], 'none', 'block')"
+            }
+          }
+        ]
+      },
+      {
+        "elmType": "div",
+        "style": {
+          "width": "100%",
+          "box-sizing": "border-box",
+          "margin-top": "10px",
+          "padding": "12px",
+          "background-color": "#f7f9fc",
+          "border-radius": "4px"
+        },
+        "children": [
+          {
+            "elmType": "div",
+            "txtContent": "Hobbies & Fun Facts",
+            "style": {
+              "font-size": "14px",
+              "font-weight": "bold",
+              "color": "#003479",
+              "margin-bottom": "5px"
+            }
+          },
+          {
+            "elmType": "div",
+            "txtContent": "[$Hobbies_Facts]",
+            "style": {
+              "font-size": "14px",
+              "color": "#333",
+              "white-space": "pre-line",
+              "word-break": "break-word",
+              "display": "=if([$Hobbies_Facts], 'block', 'none')"
+            }
+          },
+          {
+            "elmType": "div",
+            "txtContent": "Not specified",
+            "style": {
+              "font-size": "14px",
+              "font-style": "italic",
+              "color": "#888",
+              "display": "=if([$Hobbies_Facts], 'none', 'block')"
+            }
           }
         ]
       }
