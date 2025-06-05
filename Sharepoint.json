@@ -24,13 +24,14 @@
       {
         "elmType": "img",
         "attributes": {
-          "src": "=if([$Photo.picture], [$Photo.picture], if([$Photo.serverRelativeUrl], [$Photo.serverRelativeUrl], if([$Photo], [$Photo], 'https://placehold.co/320x200/F0F0F0/757575?text=No+Photo')))",
+          "src": "=if([$Photo.serverRelativeUrl], [$Photo.serverRelativeUrl], 'https://placehold.co/320x200/F0F0F0/757575?text=Photo+Not+Found')",
           "alt": "='Photo of ' + [$Title]"
         },
         "style": {
           "width": "100%",
           "height": "200px",
-          "object-fit": "cover"
+          "object-fit": "cover",
+          "background-color": "#F0F0F0"
         }
       },
       {
