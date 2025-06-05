@@ -1,5 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/view-formatting.schema.json",
+  "hideColumnHeader": true,
   "rowFormatter": {
     "elmType": "div",
     "style": {
@@ -53,39 +54,28 @@
             "elmType": "div",
             "style": {
               "display": "flex",
-              "justify-content": "space-between",
-              "align-items": "flex-start",
-              "width": "100%",
+              "flex-direction": "column",
               "margin-bottom": "12px"
             },
             "children": [
               {
                 "elmType": "div",
+                "txtContent": "[$Title]",
                 "style": {
-                  "display": "flex",
-                  "flex-direction": "column"
-                },
-                "children": [
-                  {
-                    "elmType": "div",
-                    "txtContent": "[$Title]",
-                    "style": {
-                      "font-size": "18px",
-                      "font-weight": "600",
-                      "color": "#182d4c"
-                    }
-                  },
-                  {
-                    "elmType": "div",
-                    "txtContent": "[$Job_Title]",
-                    "style": {
-                      "font-size": "15px",
-                      "color": "#595959",
-                      "padding-top": "2px",
-                      "display": "=if([$Job_Title], 'block', 'none')"
-                    }
-                  }
-                ]
+                  "font-size": "18px",
+                  "font-weight": "600",
+                  "color": "#182d4c"
+                }
+              },
+              {
+                "elmType": "div",
+                "txtContent": "[$Job_Title]",
+                "style": {
+                  "font-size": "15px",
+                  "color": "#595959",
+                  "padding-top": "2px",
+                  "display": "=if([$Job_Title], 'block', 'none')"
+                }
               },
               {
                 "elmType": "div",
@@ -94,9 +84,7 @@
                   "color": "#666666",
                   "display": "=if([$Office], 'flex', 'none')",
                   "align-items": "center",
-                  "flex-shrink": "0",
-                  "margin-left": "15px",
-                  "padding-top": "2px"
+                  "padding-top": "4px"
                 },
                 "children": [
                   {
