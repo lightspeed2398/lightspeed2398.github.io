@@ -1,23 +1,28 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/view-formatting.schema.json",
   "hideColumnHeader": true,
+  "hideSelection": true,
   "rowFormatter": {
     "elmType": "div",
     "style": {
       "display": "flex",
       "flex-direction": "row",
       "align-items": "center",
-      "width": "100%",
-      "box-sizing": "border-box",
       "font-family": "Arial, sans-serif",
-      "background-color": "#ffffff",
-      "padding": "15px 20px",
-      "border-bottom": "1px solid #e0e0e0",
-      "transition": "background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out"
+      "background-color": "rgba(24, 45, 76, 0.75)",
+      "backdrop-filter": "blur(10px)",
+      "border": "1px solid rgba(51, 221, 236, 0.2)",
+      "border-radius": "12px",
+      "padding": "20px",
+      "margin": "12px 8px",
+      "box-shadow": "0 4px 15px rgba(0, 0, 0, 0.2)",
+      "transition": "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
+      "color": "#ffffff"
     },
     ":hover": {
-      "background-color": "#f7f9fc",
-      "box-shadow": "inset 4px 0 0 #005a9e"
+      "transform": "translateY(-5px)",
+      "box-shadow": "0 8px 30px -5px rgba(51, 221, 236, 0.5)",
+      "border-color": "rgba(51, 221, 236, 0.4)"
     },
     "children": [
       {
@@ -34,9 +39,10 @@
               "src": "=if([$Personal_Photo], getThumbnailImage([$Personal_Photo], 200, 200), '')"
             },
             "style": {
-              "width": "72px",
-              "height": "72px",
-              "border-radius": "50%"
+              "width": "80px",
+              "height": "80px",
+              "border-radius": "50%",
+              "border": "2px solid #33ddec"
             }
           }
         ]
@@ -55,25 +61,25 @@
             "style": {
               "display": "flex",
               "flex-direction": "column",
-              "margin-bottom": "12px"
+              "margin-bottom": "15px"
             },
             "children": [
               {
                 "elmType": "div",
                 "txtContent": "[$Title]",
                 "style": {
-                  "font-size": "18px",
+                  "font-size": "20px",
                   "font-weight": "600",
-                  "color": "#182d4c"
+                  "color": "#ffffff"
                 }
               },
               {
                 "elmType": "div",
                 "txtContent": "[$Job_Title]",
                 "style": {
-                  "font-size": "15px",
-                  "color": "#595959",
-                  "padding-top": "2px",
+                  "font-size": "16px",
+                  "color": "#cceeff",
+                  "padding-top": "4px",
                   "display": "=if([$Job_Title], 'block', 'none')"
                 }
               },
@@ -81,17 +87,18 @@
                 "elmType": "div",
                 "style": {
                   "font-size": "14px",
-                  "color": "#666666",
+                  "color": "#cceeff",
                   "display": "=if([$Office], 'flex', 'none')",
                   "align-items": "center",
-                  "padding-top": "4px"
+                  "padding-top": "5px"
                 },
                 "children": [
                   {
                     "elmType": "span",
                     "txtContent": "📍 ",
                     "style": {
-                      "margin-right": "5px"
+                      "margin-right": "5px",
+                      "color": "#33ddec"
                     }
                   },
                   {
@@ -124,7 +131,7 @@
                     "txtContent": "Current Work Interests",
                     "style": {
                       "font-weight": "bold",
-                      "color": "#003479",
+                      "color": "#33ddec",
                       "margin-bottom": "5px"
                     }
                   },
@@ -132,7 +139,7 @@
                     "elmType": "div",
                     "txtContent": "=if([$Current_work_interests], [$Current_work_interests], 'Not specified')",
                     "style": {
-                      "color": "=if([$Current_work_interests], '#333', '#888')",
+                      "color": "=if([$Current_work_interests], '#e0e0e0', '#8b9fb5')",
                       "font-style": "=if([$Current_work_interests], 'normal', 'italic')"
                     }
                   }
@@ -151,7 +158,7 @@
                     "txtContent": "Previous Work Interests",
                     "style": {
                       "font-weight": "bold",
-                      "color": "#003479",
+                      "color": "#33ddec",
                       "margin-bottom": "5px"
                     }
                   },
@@ -159,7 +166,7 @@
                     "elmType": "div",
                     "txtContent": "=if([$Previous_work_interests], [$Previous_work_interests], 'Not specified')",
                     "style": {
-                      "color": "=if([$Previous_work_interests], '#333', '#888')",
+                      "color": "=if([$Previous_work_interests], '#e0e0e0', '#8b9fb5')",
                       "font-style": "=if([$Previous_work_interests], 'normal', 'italic')"
                     }
                   }
@@ -178,7 +185,7 @@
                     "txtContent": "Hobbies & Fun Facts",
                     "style": {
                       "font-weight": "bold",
-                      "color": "#003479",
+                      "color": "#33ddec",
                       "margin-bottom": "5px"
                     }
                   },
@@ -186,7 +193,7 @@
                     "elmType": "div",
                     "txtContent": "=if([$Hobbies_Facts], [$Hobbies_Facts], 'Not specified')",
                     "style": {
-                      "color": "=if([$Hobbies_Facts], '#333', '#888')",
+                      "color": "=if([$Hobbies_Facts], '#e0e0e0', '#8b9fb5')",
                       "font-style": "=if([$Hobbies_Facts], 'normal', 'italic')"
                     }
                   }
