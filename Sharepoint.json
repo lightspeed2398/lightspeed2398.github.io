@@ -4,7 +4,6 @@
     "elmType": "div",
     "style": {
       "margin": "12px",
-      /* "width" property removed to avoid calc() issues, SharePoint will manage or you can set a fixed width */
       "box-sizing": "border-box"
     },
     "customRowAction": {
@@ -21,7 +20,6 @@
           "border-radius": "12px",
           "background-color": "#ffffff",
           "box-shadow": "0 6px 18px rgba(0, 0, 0, 0.1)",
-          /* "width": "100%" removed */
           "box-sizing": "border-box",
           "transition": "transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out"
         },
