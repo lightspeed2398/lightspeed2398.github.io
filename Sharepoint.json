@@ -31,8 +31,8 @@
               "border-radius": "50%",
               "background-color": "#62c3f4",
               "padding": "3px",
-              "margin": "0 auto", /* Center the block */
-              "overflow": "hidden" /* To keep image within circle if not using object-fit */
+              "margin": "0 auto",
+              "overflow": "hidden"
             },
             "children": [
               {
@@ -44,9 +44,6 @@
                   "width": "100%",
                   "height": "100%",
                   "border-radius": "50%"
-                  /* No object-fit; image will fill the 100x100 space, potentially distorting if not square.
-                     Alternatively, set specific width/height on img and let overflow:hidden on parent crop,
-                     or make parent use flex to center smaller image. For now, this is simplest. */
                 }
               }
             ]
