@@ -1,0 +1,26 @@
+{
+  "sections": [
+    {
+      "displayName": "Core Profile",
+      "fields": [
+        "Personal_Photo",
+        "Title",
+        "Job_Title",
+        "Office"
+      ]
+    },
+    {
+      "displayName": "Professional Details & Interests",
+      "fields": [
+        "Current_work_interests",
+        "Previous_work_interests"
+      ]
+    },
+    {
+      "displayName": "About Me",
+      "fields": [
+        "Hobbies_Facts"
+      ]
+    }
+  ]
+}
