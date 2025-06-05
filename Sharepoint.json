@@ -9,10 +9,12 @@
       "margin": "10px",
       "font-family": "Arial, sans-serif",
       "background-color": "#ffffff",
-      "border": "1px solid #e0e0e0",
-      "border-top": "5px solid #003479",
       "border-radius": "4px",
-      "padding": "15px"
+      "padding": "15px",
+      "height": "auto",
+      "min-height": "341px",
+      "overflow": "visible",
+      "border": "5px solid #003479"
     },
     "children": [
       {
