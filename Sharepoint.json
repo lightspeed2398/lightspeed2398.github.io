@@ -2,23 +2,21 @@
   "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/view-formatting.schema.json",
   "formatter": {
     "elmType": "div",
-    "comment": "This is the new outer 'wrapper'. It uses inline-block for robust layout.",
+    "comment": "CORRECTED: This outer 'wrapper' uses inline-block for a robust layout.",
     "style": {
       "display": "inline-block",
       "vertical-align": "top",
       "width": "340px",
-      "height": "100%",
       "margin": "10px"
     },
     "children": [
       {
         "elmType": "div",
-        "comment": "This is your original card, now nested inside the wrapper.",
+        "comment": "This is your card. The incorrect height property has been removed.",
         "style": {
           "display": "flex",
           "flex-direction": "column",
           "width": "100%",
-          "height": "100%",
           "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
           "background-color": "#ffffff",
           "border-radius": "4px",
