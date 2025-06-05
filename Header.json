@@ -1,0 +1,26 @@
+{
+  "elmType": "div",
+  "style": {
+    "background-color": "#182d4c",
+    "padding": "15px 20px",
+    "color": "#ffffff"
+  },
+  "children": [
+    {
+      "elmType": "div",
+      "style": {
+        "font-size": "22px",
+        "font-weight": "600"
+      },
+      "txtContent": "=if(toString([$ID]) == '', 'Create New Profile', 'Editing Profile for ' + [$Title])"
+    },
+    {
+      "elmType": "div",
+      "style": {
+        "font-size": "14px",
+        "padding-top": "4px"
+      },
+      "txtContent": "Fill in the details below to update the directory."
+    }
+  ]
+}
