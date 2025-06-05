@@ -23,11 +23,7 @@
           "box-shadow": "0 6px 18px rgba(0, 0, 0, 0.1)",
           "width": "100%",
           "box-sizing": "border-box",
-          "border": "1px solid transparent",
-          "transition": "transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out"
-        },
-        "attributes": {
-          "class": "ms-borderColor-neutralLight--hover"
+          "transition": "transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out"
         },
         "children": [
           {
