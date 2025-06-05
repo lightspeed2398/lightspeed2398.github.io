@@ -1,25 +1,223 @@
 {
-  "sections": [
+  "elmType": "div",
+  "style": {
+    "padding": "20px",
+    "background-color": "#f3f2f1" 
+  },
+  "children": [
     {
-      "displayName": "Core Profile",
-      "fields": [
-        "Personal_Photo",
-        "Title",
-        "Job_Title",
-        "Office"
+     
+      "elmType": "div",
+      "style": {
+        "background-color": "#ffffff", 
+        "border-radius": "8px",
+        "box-shadow": "0 4px 12px rgba(0,0,0,0.08)", 
+        "padding": "25px",
+        "margin-bottom": "25px"
+      },
+      "children": [
+        {
+          "elmType": "div",
+          "style": {
+            "font-size": "22px",
+            "font-weight": "600",
+            "color": "@themePrimary", 
+            "margin-bottom": "20px",
+            "padding-bottom": "12px",
+            "border-bottom": "2px solid @themeLighter"
+          },
+          "txtContent": "Key Employee Details"
+        },
+        { 
+          "elmType": "div",
+          "style": { "margin-bottom": "20px", "padding": "0 5px" },
+          "children": [
+            {
+              "elmType": "div",
+              "style": { "font-size": "16px", "font-weight": "600", "color": "#323130", "margin-bottom": "6px" },
+              "txtContent": "Full Name"
+            },
+            {
+              "elmType": "div",
+              "style": { "font-size": "13px", "color": "#605E5C", "margin-bottom": "8px", "line-height": "1.5" },
+              "txtContent": "Please enter your full legal name as it should appear in official records."
+            },
+            {
+              "elmType": "div",
+              "txtContent": "[$Name]" 
+            }
+          ]
+        },
+        { 
+          "elmType": "div",
+          "style": { "margin-bottom": "20px", "padding": "0 5px" },
+          "children": [
+            {
+              "elmType": "div",
+              "style": { "font-size": "16px", "font-weight": "600", "color": "#323130", "margin-bottom": "6px" },
+              "txtContent": "Profile Picture"
+            },
+            {
+              "elmType": "div",
+              "style": { "font-size": "13px", "color": "#605E5C", "margin-bottom": "8px", "line-height": "1.5" },
+              "txtContent": "Upload a recent, professional headshot. This image will be used in internal directories and profiles."
+            },
+            {
+              "elmType": "div",
+              "txtContent": "[$Personal_Photo]"
+            }
+          ]
+        },
+        { 
+          "elmType": "div",
+          "style": { "margin-bottom": "20px", "padding": "0 5px" },
+          "children": [
+            {
+              "elmType": "div",
+              "style": { "font-size": "16px", "font-weight": "600", "color": "#323130", "margin-bottom": "6px" },
+              "txtContent": "Office Location"
+            },
+            {
+              "elmType": "div",
+              "style": { "font-size": "13px", "color": "#605E5C", "margin-bottom": "8px", "line-height": "1.5" },
+              "txtContent": "Select your primary work office from the available options."
+            },
+            {
+              "elmType": "div",
+              "txtContent": "[$Office]"
+            }
+          ]
+        },
+        { 
+          "elmType": "div",
+          "style": { "margin-bottom": "20px", "padding": "0 5px" },
+          "children": [
+            {
+              "elmType": "div",
+              "style": { "font-size": "16px", "font-weight": "600", "color": "#323130", "margin-bottom": "6px" },
+              "txtContent": "Current Role / Job Title"
+            },
+            {
+              "elmType": "div",
+              "style": { "font-size": "13px", "color": "#605E5C", "margin-bottom": "8px", "line-height": "1.5" },
+              "txtContent": "Enter your official job title as recognized by the organization."
+            },
+            {
+              "elmType": "div",
+              "txtContent": "[$Job_Title]"
+            }
+          ]
+        }
       ]
     },
     {
-      "displayName": "Professional Details & Interests",
-      "fields": [
-        "Current_work_interests",
-        "Previous_work_interests"
+      
+      "elmType": "div",
+      "style": {
+        "background-color": "#ffffff",
+        "border-radius": "8px",
+        "box-shadow": "0 4px 12px rgba(0,0,0,0.08)",
+        "padding": "25px",
+        "margin-bottom": "25px"
+      },
+      "children": [
+        {
+          "elmType": "div",
+          "style": {
+            "font-size": "22px",
+            "font-weight": "600",
+            "color": "@themePrimary",
+            "margin-bottom": "20px",
+            "padding-bottom": "12px",
+            "border-bottom": "2px solid @themeLighter"
+          },
+          "txtContent": "Professional Focus & Background"
+        },
+        { 
+          "elmType": "div",
+          "style": { "margin-bottom": "20px", "padding": "0 5px" },
+          "children": [
+            {
+              "elmType": "div",
+              "style": { "font-size": "16px", "font-weight": "600", "color": "#323130", "margin-bottom": "6px" },
+              "txtContent": "Current Professional Interests & Focus Areas"
+            },
+            {
+              "elmType": "div",
+              "style": { "font-size": "13px", "color": "#605E5C", "margin-bottom": "8px", "line-height": "1.5" },
+              "txtContent": "Describe your current key responsibilities, ongoing projects, and areas of professional interest or specialization. This helps colleagues understand your current work."
+            },
+            {
+              "elmType": "div",
+              "txtContent": "[$Current_work_interests]"
+            }
+          ]
+        },
+        { 
+          "elmType": "div",
+          "style": { "margin-bottom": "20px", "padding": "0 5px" },
+          "children": [
+            {
+              "elmType": "div",
+              "style": { "font-size": "16px", "font-weight": "600", "color": "#323130", "margin-bottom": "6px" },
+              "txtContent": "Previous Work Experience & Interests"
+            },
+            {
+              "elmType": "div",
+              "style": { "font-size": "13px", "color": "#605E5C", "margin-bottom": "8px", "line-height": "1.5" },
+              "txtContent": "Briefly outline significant past roles, projects, or areas of expertise that contribute to your current capabilities and professional journey."
+            },
+            {
+              "elmType": "div",
+              "txtContent": "[$Previous_work_interests]"
+            }
+          ]
+        }
       ]
     },
     {
-      "displayName": "About Me",
-      "fields": [
-        "Hobbies_Facts"
+      
+      "elmType": "div",
+      "style": {
+        "background-color": "#ffffff",
+        "border-radius": "8px",
+        "box-shadow": "0 4px 12px rgba(0,0,0,0.08)",
+        "padding": "25px",
+        "margin-bottom": "25px"
+      },
+      "children": [
+        {
+          "elmType": "div",
+          "style": {
+            "font-size": "22px",
+            "font-weight": "600",
+            "color": "@themePrimary",
+            "margin-bottom": "20px",
+            "padding-bottom": "12px",
+            "border-bottom": "2px solid @themeLighter"
+          },
+          "txtContent": "About Me"
+        },
+        { 
+          "elmType": "div",
+          "style": { "margin-bottom": "20px", "padding": "0 5px" },
+          "children": [
+            {
+              "elmType": "div",
+              "style": { "font-size": "16px", "font-weight": "600", "color": "#323130", "margin-bottom": "6px" },
+              "txtContent": "Hobbies, Fun Facts & Personal Bio"
+            },
+            {
+              "elmType": "div",
+              "style": { "font-size": "13px", "color": "#605E5C", "margin-bottom": "8px", "line-height": "1.5" },
+              "txtContent": "Share some of your hobbies, interesting facts about yourself, or a short personal bio. This is a great way for colleagues to get to know you better on a personal level."
+            },
+            {
+              "elmType": "div",
+              "txtContent": "[$Hobbies_facts]"
+            }
+          ]
+        }
       ]
     }
   ]
