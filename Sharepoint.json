@@ -1,211 +1,159 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/tile-formatting.schema.json",
-  "hideSelection": false,
-  "fillHorizontally": true,
-  "height": "auto",
-  "width": 320,
-  "formatter": {
-    "elmType": "div",
-    "style": {
-      "display": "flex",
-      "flex-direction": "column",
-      "align-items": "stretch",
-      "width": "100%",
-      "height": "100%",
-      "box-sizing": "border-box",
-      "border": "1px solid #E0E0E0",
-      "border-radius": "8px",
-      "box-shadow": "0 2px 4px rgba(0,0,0,0.1)",
-      "overflow": "hidden",
-      "font-family": "Segoe UI, Arial, sans-serif",
-      "background-color": "#FFFFFF"
-    },
-    "children": [
-      {
-        "elmType": "img",
-        "attributes": {
-          "src": "=if([$Photo.serverRelativeUrl], [$Photo.serverRelativeUrl], 'https://placehold.co/320x200/F0F0F0/757575?text=Photo+Not+Found')",
-          "alt": "='Photo of ' + [$Title]"
-        },
-        "style": {
-          "width": "100%",
-          "height": "200px",
-          "object-fit": "cover",
-          "background-color": "#F0F0F0"
-        }
+  "schema": "https://developer.microsoft.com/json-schemas/sp/v2/tile-formatting.schema.json",
+  "elmType": "div",
+  "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "stretch",
+    "width": "300px",
+    "padding": "16px",
+    "margin": "12px",
+    "border": "1px solid #e0e0e0",
+    "border-radius": "8px",
+    "box-shadow": "0 2px 4px rgba(0,0,0,0.1)",
+    "font-family": "Segoe UI, Arial, sans-serif",
+    "background-color": "#ffffff"
+  },
+  "children": [
+    {
+      "elmType": "div",
+      "style": {
+        "display": "flex",
+        "justify-content": "center",
+        "margin-bottom": "12px"
       },
-      {
-        "elmType": "div",
-        "style": {
-          "padding": "15px",
-          "display": "flex",
-          "flex-direction": "column",
-          "gap": "8px",
-          "flex-grow": "1"
-        },
-        "children": [
-          {
-            "elmType": "div",
-            "txtContent": "[$Title]",
-            "style": {
-              "font-size": "20px",
-              "font-weight": "600",
-              "color": "#212121",
-              "margin-bottom": "2px"
-            }
+      "children": [
+        {
+          "elmType": "img",
+          "attributes": {
+            "src": "[$Personal_Photo.serverRelativeUrl]",
+            "alt": "[$Name]"
           },
-          {
-            "elmType": "div",
-            "txtContent": "[$JobTitle]",
-            "style": {
-              "font-size": "15px",
-              "font-weight": "normal",
-              "color": "#4A4A4A",
-              "margin-bottom": "10px"
-            }
-          },
-          {
-            "elmType": "div",
-            "style": {
-              "border-top": "1px solid #EEEEEE",
-              "width": "100%",
-              "margin-bottom": "10px",
-              "display": "=if([$Office] || [$TeamFocus] || [$PreviousFocus] || [$PersonalHobbies], 'block', 'none')"
-            }
-          },
-          {
-            "elmType": "div",
-            "style": {
-              "display": "=if([$Office], 'flex', 'none')",
-              "align-items": "center",
-              "font-size": "13px",
-              "color": "#333333",
-              "margin-bottom": "6px"
-            },
-            "attributes": {
-              "title": "Office"
-            },
-            "children": [
-              {
-                "elmType": "span",
-                "attributes": {
-                  "iconName": "MapPin"
-                },
-                "style": {
-                  "font-size": "16px",
-                  "margin-right": "10px",
-                  "color": "#0078D4",
-                  "width": "18px"
-                }
-              },
-              {
-                "elmType": "span",
-                "txtContent": "[$Office]"
-              }
-            ]
-          },
-          {
-            "elmType": "div",
-            "style": {
-              "display": "=if([$TeamFocus], 'flex', 'none')",
-              "align-items": "center",
-              "font-size": "13px",
-              "color": "#333333",
-              "margin-bottom": "6px"
-            },
-            "attributes": {
-              "title": "Team Focus"
-            },
-            "children": [
-              {
-                "elmType": "span",
-                "attributes": {
-                  "iconName": "BullseyeTarget"
-                },
-                "style": {
-                  "font-size": "16px",
-                  "margin-right": "10px",
-                  "color": "#0078D4",
-                  "width": "18px"
-                }
-              },
-              {
-                "elmType": "span",
-                "txtContent": "[$TeamFocus]"
-              }
-            ]
-          },
-          {
-            "elmType": "div",
-            "style": {
-              "display": "=if([$PreviousFocus], 'flex', 'none')",
-              "align-items": "flex-start",
-              "font-size": "13px",
-              "color": "#333333",
-              "margin-bottom": "6px"
-            },
-            "attributes": {
-              "title": "Previous Focus"
-            },
-            "children": [
-              {
-                "elmType": "span",
-                "attributes": {
-                  "iconName": "History"
-                },
-                "style": {
-                  "font-size": "16px",
-                  "margin-right": "10px",
-                  "color": "#0078D4",
-                  "width": "18px",
-                  "margin-top": "1px"
-                }
-              },
-              {
-                "elmType": "span",
-                "txtContent": "[$PreviousFocus]",
-                "style": {
-                  "white-space": "pre-wrap"
-                }
-              }
-            ]
-          },
-          {
-            "elmType": "div",
-            "style": {
-              "display": "=if([$PersonalHobbies], 'flex', 'none')",
-              "align-items": "flex-start",
-              "font-size": "13px",
-              "color": "#333333"
-            },
-            "attributes": {
-              "title": "Personal Hobbies"
-            },
-            "children": [
-              {
-                "elmType": "span",
-                "attributes": {
-                  "iconName": "Like"
-                },
-                "style": {
-                  "font-size": "16px",
-                  "margin-right": "10px",
-                  "color": "#0078D4",
-                  "width": "18px",
-                  "margin-top": "1px"
-                }
-              },
-              {
-                "elmType": "span",
-                "txtContent": "[$PersonalHobbies]",
-                "style": {
-                  "white-space": "pre-wrap"
-                }
-              }
-            ]
+          "style": {
+            "width": "100px",
+            "height": "100px",
+            "border-radius": "50%",
+            "object-fit": "cover",
+            "border": "2px solid #0078d4"
           }
-        ]
-      }
-    ]
-  }
+        }
+      ]
+    },
+    {
+      "elmType": "div",
+      "style": {
+        "text-align": "center",
+        "margin-bottom": "8px"
+      },
+      "children": [
+        {
+          "elmType": "div",
+          "txtContent": "[$Name]",
+          "style": {
+            "font-size": "18px",
+            "font-weight": "600",
+            "color": "#333333"
+          }
+        }
+      ]
+    },
+    {
+      "elmType": "div",
+      "style": {
+        "text-align": "center",
+        "margin-bottom": "16px"
+      },
+      "children": [
+        {
+          "elmType": "div",
+          "txtContent": "[$Office]",
+          "style": {
+            "font-size": "14px",
+            "color": "#666666"
+          }
+        }
+      ]
+    },
+    {
+      "elmType": "div",
+      "style": {
+        "margin-bottom": "12px"
+      },
+      "children": [
+        {
+          "elmType": "div",
+          "txtContent": "Current Work Interests:",
+          "style": {
+            "font-size": "14px",
+            "font-weight": "bold",
+            "color": "#0078d4",
+            "margin-bottom": "4px"
+          }
+        },
+        {
+          "elmType": "div",
+          "txtContent": "[$Current_work_interests]",
+          "style": {
+            "font-size": "14px",
+            "color": "#333333",
+            "white-space": "pre-wrap",
+            "word-break": "break-word"
+          }
+        }
+      ]
+    },
+    {
+      "elmType": "div",
+      "style": {
+        "margin-bottom": "12px"
+      },
+      "children": [
+        {
+          "elmType": "div",
+          "txtContent": "Previous Work Interests:",
+          "style": {
+            "font-size": "14px",
+            "font-weight": "bold",
+            "color": "#0078d4",
+            "margin-bottom": "4px"
+          }
+        },
+        {
+          "elmType": "div",
+          "txtContent": "[$Previous_work_interests]",
+          "style": {
+            "font-size": "14px",
+            "color": "#333333",
+            "white-space": "pre-wrap",
+            "word-break": "break-word"
+          }
+        }
+      ]
+    },
+    {
+      "elmType": "div",
+      "children": [
+        {
+          "elmType": "div",
+          "txtContent": "Hobbies & Fun Facts:",
+          "style": {
+            "font-size": "14px",
+            "font-weight": "bold",
+            "color": "#0078d4",
+            "margin-bottom": "4px"
+          }
+        },
+        {
+          "elmType": "div",
+          "txtContent": "[$Hobbies_Facts]",
+          "style": {
+            "font-size": "14px",
+            "color": "#333333",
+            "white-space": "pre-wrap",
+            "word-break": "break-word"
+          }
+        }
+      ]
+    }
+  ]
 }
