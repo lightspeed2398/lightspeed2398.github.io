@@ -3,8 +3,7 @@
   "formatter": {
     "elmType": "div",
     "style": {
-      "display": "inline-flex",
-      "vertical-align": "top",
+      "display": "flex",
       "flex-direction": "column",
       "width": "340px",
       "margin": "10px",
@@ -15,7 +14,9 @@
       "height": "auto",
       "overflow": "visible",
       "border-top": "5px solid #003479",
-      "box-shadow": "0 3px 6px rgba(0,0,0,0.08)"
+      "box-shadow": "0 3px 6px rgba(0,0,0,0.08)",
+      "box-sizing": "border-box",
+      "flex-shrink": 0
     },
     ":hover": {
       "box-shadow": "0 6px 12px rgba(0,0,0,0.12)"
