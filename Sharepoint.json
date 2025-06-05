@@ -140,4 +140,111 @@
                   "color": "#333",
                   "white-space": "pre-line",
                   "word-break": "break-word",
-                  "display": "=if
+                  "display": "=if([$Current_work_interests], 'block', 'none')"
+                }
+              },
+              {
+                "elmType": "div",
+                "txtContent": "Not specified",
+                "style": {
+                  "font-size": "14px",
+                  "font-style": "italic",
+                  "color": "#888",
+                  "display": "=if([$Current_work_interests], 'none', 'block')"
+                }
+              }
+            ]
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "width": "100%",
+              "box-sizing": "border-box",
+              "margin-top": "10px",
+              "padding": "12px",
+              "background-color": "#f7f9fc",
+              "border-radius": "4px"
+            },
+            "children": [
+              {
+                "elmType": "div",
+                "txtContent": "Previous Work Interests",
+                "style": {
+                  "font-size": "14px",
+                  "font-weight": "bold",
+                  "color": "#003479",
+                  "margin-bottom": "5px"
+                }
+              },
+              {
+                "elmType": "div",
+                "txtContent": "[$Previous_work_interests]",
+                "style": {
+                  "font-size": "14px",
+                  "color": "#333",
+                  "white-space": "pre-line",
+                  "word-break": "break-word",
+                  "display": "=if([$Previous_work_interests], 'block', 'none')"
+                }
+              },
+              {
+                "elmType": "div",
+                "txtContent": "Not specified",
+                "style": {
+                  "font-size": "14px",
+                  "font-style": "italic",
+                  "color": "#888",
+                  "display": "=if([$Previous_work_interests], 'none', 'block')"
+                }
+              }
+            ]
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "width": "100%",
+              "box-sizing": "border-box",
+              "margin-top": "10px",
+              "padding": "12px",
+              "background-color": "#f7f9fc",
+              "border-radius": "4px"
+            },
+            "children": [
+              {
+                "elmType": "div",
+                "txtContent": "Hobbies & Fun Facts",
+                "style": {
+                  "font-size": "14px",
+                  "font-weight": "bold",
+                  "color": "#003479",
+                  "margin-bottom": "5px"
+                }
+              },
+              {
+                "elmType": "div",
+                "txtContent": "[$Hobbies_Facts]",
+                "style": {
+                  "font-size": "14px",
+                  "color": "#333",
+                  "white-space": "pre-line",
+                  "word-break": "break-word",
+                  "display": "=if([$Hobbies_Facts], 'block', 'none')"
+                }
+              },
+              {
+                "elmType": "div",
+                "txtContent": "Not specified",
+                "style": {
+                  "font-size": "14px",
+                  "font-style": "italic",
+                  "color": "#888",
+                  "display": "=if([$Hobbies_Facts], 'none', 'block')"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
