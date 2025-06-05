@@ -1,5 +1,6 @@
 {
   "schema": "https://developer.microsoft.com/json-schemas/sp/v2/tile-formatting.schema.json",
+  "hideSelection": true,
   "elmType": "div",
   "style": {
     "display": "flex",
@@ -18,7 +19,7 @@
     {
       "elmType": "div",
       "style": {
-        "display": "flex",
+        "display": "=if([$Personal_Photo.serverRelativeUrl] == '', 'none', 'flex')",
         "justify-content": "center",
         "margin-bottom": "12px"
       },
@@ -27,7 +28,7 @@
           "elmType": "img",
           "attributes": {
             "src": "[$Personal_Photo.serverRelativeUrl]",
-            "alt": "[$Name]"
+            "alt": "[$Title]"
           },
           "style": {
             "width": "100px",
@@ -48,7 +49,7 @@
       "children": [
         {
           "elmType": "div",
-          "txtContent": "[$Name]",
+          "txtContent": "[$Title]",
           "style": {
             "font-size": "18px",
             "font-weight": "600",
