@@ -24,7 +24,7 @@
       {
         "elmType": "img",
         "attributes": {
-          "src": "=if([$Photo.serverRelativeUrl], [$Photo.serverRelativeUrl], if([$Photo], [$Photo], 'https://placehold.co/320x200/F0F0F0/757575?text=No+Photo'))",
+          "src": "=if([$Photo.picture], [$Photo.picture], if([$Photo.serverRelativeUrl], [$Photo.serverRelativeUrl], if([$Photo], [$Photo], 'https://placehold.co/320x200/F0F0F0/757575?text=No+Photo')))",
           "alt": "='Photo of ' + [$Title]"
         },
         "style": {
