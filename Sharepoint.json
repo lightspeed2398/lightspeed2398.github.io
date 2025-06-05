@@ -134,9 +134,7 @@
               "font-size": "14px",
               "color": "#555555",
               "white-space": "pre-line",
-              "line-height": "1.5",
-              "max-height": "100px",
-              "overflow-y": "auto"
+              "line-height": "1.5"
             }
           }
         ]
@@ -170,9 +168,7 @@
               "font-size": "14px",
               "color": "#555555",
               "white-space": "pre-line",
-              "line-height": "1.5",
-              "max-height": "100px",
-              "overflow-y": "auto"
+              "line-height": "1.5"
             }
           }
         ]
@@ -205,9 +201,7 @@
               "font-size": "14px",
               "color": "#555555",
               "white-space": "pre-line",
-              "line-height": "1.5",
-              "max-height": "100px",
-              "overflow-y": "auto"
+              "line-height": "1.5"
             }
           }
         ]
